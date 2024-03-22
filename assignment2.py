@@ -49,7 +49,7 @@ def get_top_words(words, top=10):
     cur_word = None
 
     for _ in range(top):
-        for count, word in enumerate(words):
+        for word, count in words.items():
             count = int(count)
             # print(f"{word} - {count}")
             if word in top_words:
@@ -84,7 +84,7 @@ def visualize_top_words(words):
     ax.barh(keys, values)
 
     # ax.barh(words.keys(), words.values(), align='center')
-    ax.set_yticks(keys, labels=values)
+    ax.set_yticks(keys, labels=keys)
     ax.invert_yaxis()  # labels read top-to-bottom
     ax.set_ylabel('Words')
     ax.set_xlabel('Count')
